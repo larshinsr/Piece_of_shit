@@ -1,0 +1,4 @@
+repository "Piece of shit@igupup@cloud"
+  path "/"
+    br "/main"
+    co "/main"
