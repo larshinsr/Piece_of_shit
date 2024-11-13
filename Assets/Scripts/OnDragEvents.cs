@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Event för när ett objekt dras eller släpps
+/// Event fï¿½r nï¿½r ett objekt dras eller slï¿½pps
 /// </summary>
 public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -27,7 +27,7 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     public bool stormpikeCommando = false;
 
     /// <summary>
-    /// Konstuktor för OnDragEvents
+    /// Konstuktor fï¿½r OnDragEvents
     /// </summary>
     public OnDragEvents()
     {
@@ -79,9 +79,9 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             }
 
             float angle = 0;
-            if (mousePos.x > worldStartPos.x) //till höger om mercenary
+            if (mousePos.x > worldStartPos.x) //till hï¿½ger om mercenary
             {
-                if (mousePos.y > worldStartPos.y) //över mercenary
+                if (mousePos.y > worldStartPos.y) //ï¿½ver mercenary
                 {
                     angle = Mathf.Atan2((mousePos.y - merc_onBeginDragStartPos.y), (mousePos.x - merc_onBeginDragStartPos.x)) * Mathf.Rad2Deg;
                     angle = 90 - angle;
@@ -111,7 +111,7 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     }
 
     /// <summary>
-    /// Unitys inbyggda funktion för när en mus börjar dra någonting
+    /// Unitys inbyggda funktion fï¿½r nï¿½r en mus bï¿½rjar dra nï¿½gonting
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnBeginDrag(PointerEventData eventData)
@@ -175,7 +175,7 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     }
 
     /// <summary>
-    /// Unitys inbyggda funktion som itereras så länge ett objekt dras
+    /// Unitys inbyggda funktion som itereras sï¿½ lï¿½nge ett objekt dras
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnDrag(PointerEventData eventData)
@@ -225,9 +225,9 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
                 }
 
                 float angle = 0;
-                if (mousePos.x > worldStartPos.x) //till höger om mercenary
+                if (mousePos.x > worldStartPos.x) //till hï¿½ger om mercenary
                 {
-                    if (mousePos.y > worldStartPos.y) //över mercenary
+                    if (mousePos.y > worldStartPos.y) //ï¿½ver mercenary
                     {
                         angle = Mathf.Atan2((mousePos.y - merc_onBeginDragStartPos.y), (mousePos.x - merc_onBeginDragStartPos.x)) * Mathf.Rad2Deg;
                         angle = 90 - angle;
@@ -259,7 +259,7 @@ public class OnDragEvents : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     }
 
     /// <summary>
-    /// Unitys inbyggda funktion för när ett objekt slutar dras
+    /// Unitys inbyggda funktion fï¿½r nï¿½r ett objekt slutar dras
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnEndDrag(PointerEventData eventData)

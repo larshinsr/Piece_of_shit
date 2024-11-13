@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8930cb69c4695514aab1cb250ea87507, type: 3}
+  m_Name: Koroviev
+  m_EditorClassIdentifier: 
+  health: 36
+  attack: 31
+  mana: 1
+  name: Koroviev
+  description: ' (+4 Attack/+4 Health)'
+  cardType: 0
+  image: {fileID: 21300000, guid: e716b470e587bb643928e066fb9531b0, type: 3}
+  durability: 24
