@@ -12,7 +12,7 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
 
     /// <summary>
-    /// Konstuktor för MenuButtonEvents
+    /// Konstuktor fï¿½r MenuButtonEvents
     /// </summary>
     public MenuButtonEvents()
     {
@@ -20,7 +20,7 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     /// <summary>
-    /// Unitys inbyggda funktion för när en mus är över ett objekt
+    /// Unitys inbyggda funktion fï¿½r nï¿½r en mus ï¿½r ï¿½ver ett objekt
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnPointerEnter(PointerEventData eventData)
@@ -39,7 +39,7 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     /// <summary>
-    /// Unitys inbyggda funktion för när en mus lämnar ett objekt
+    /// Unitys inbyggda funktion fï¿½r nï¿½r en mus lï¿½mnar ett objekt
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnPointerExit(PointerEventData eventData)
@@ -58,21 +58,28 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     /// <summary>
-    /// Byter scen till scen 1, där kort väljs
+    /// Byter scen till scen 1, dï¿½r kort vï¿½ljs
     /// </summary>
     public virtual void PlayGame()
     {
         SwitchScene(1);
     }
 
+    public void ClickButtonOnCollection(){
+        SwitchScene(3);
+    }
+
     /// <summary>
     /// Byter scen av spelet
     /// </summary>
-    /// <param name="sceneIndex">Index på vilken scen som ska synas nu</param>
+    /// <param name="sceneIndex">Index pï¿½ vilken scen som ska synas nu</param>
     protected void SwitchScene(int sceneIndex)
     {
         switch(sceneIndex)
         {
+            case 0:
+                AsyncOperation menu = SceneManager.LoadSceneAsync(0);
+            break;
             case 1:
                 AsyncOperation operation = SceneManager.LoadSceneAsync(1);
                 break;
@@ -91,19 +98,19 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
                     }
                 }
 
-                if (GameObject.Find("Scripts").GetComponent<SelectDeck>().cardsChosen == 30)
+                if (GameObject.Find("Scripts").GetComponent<SelectDeck>().cardsChosen == 10)
                 {
 
                     bool canPlayGame = true;
 
                     GameObject cards = GameObject.Find("Cards").gameObject;
-                    if (cards.transform.childCount != 30)
+                    if (cards.transform.childCount != 10)
                     {
                         canPlayGame = false;
                     }
                     else
                     {
-                        for (int i = 0; i < 30; i++)
+                        for (int i = 0; i < 10; i++)
                         {
                             string name = cards.transform.GetChild(i).name;
                             cardDeck.Add(name);
@@ -115,6 +122,9 @@ public class MenuButtonEvents : MonoBehaviour, IPointerEnterHandler, IPointerExi
                         operation = SceneManager.LoadSceneAsync(2);
                     }
                 }
+            break;
+            case 3:
+                AsyncOperation collection = SceneManager.LoadSceneAsync(3);
             break;
                 default:
                     break; 

@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Klass för spelaren, den man själv spelar som 
+/// Klass fï¿½r spelaren, den man sjï¿½lv spelar som 
 /// </summary>
 public class Player : Humanoid
 {
 
     /// <summary>
-    /// Konstuktor för Player
+    /// Konstuktor fï¿½r Player
     /// </summary>
     public Player()
     {
@@ -20,8 +18,8 @@ public class Player : Humanoid
     /// <summary>
     /// Skadar en av fiendes soldater
     /// </summary>
-    /// <param name="playerIndex">Spelarens soldats plats på spelplanen räknat från vänster</param>
-    /// <param name="enemyIndex">Fiendens soldats plats på spelplanen räknat från vänster</param>
+    /// <param name="playerIndex">Spelarens soldats plats pï¿½ spelplanen rï¿½knat frï¿½n vï¿½nster</param>
+    /// <param name="enemyIndex">Fiendens soldats plats pï¿½ spelplanen rï¿½knat frï¿½n vï¿½nster</param>
     public override void Attack(int playerIndex, int enemyIndex)
     {
 
@@ -214,9 +212,9 @@ public class Player : Humanoid
     }
 
     /// <summary>
-    /// Metod för att använda ens "Hero Power"
+    /// Metod fï¿½r att anvï¿½nda ens "Hero Power"
     /// </summary>
-    /// <param name="heroPowerName">Namnet på förmågan</param>
+    /// <param name="heroPowerName">Namnet pï¿½ fï¿½rmï¿½gan</param>
     public override void UseHeroPower(string heroPowerName)
     {
 
@@ -232,7 +230,7 @@ public class Player : Humanoid
         {
             switch (heroPowerName)
             {
-                case "Armor_Up!": // Använder switch/case för flexibilitet senare, behövs dock ej
+                case "Armor_Up!": // Anvï¿½nder switch/case fï¿½r flexibilitet senare, behï¿½vs dock ej
                     try
                     {
                         GameObject armor = GameObject.Find("Player Hero").transform.GetChild(3).gameObject;
@@ -275,10 +273,10 @@ public class Player : Humanoid
     }
 
     /// <summary>
-    /// Metod för att skada någon utan att själv bli skadad
+    /// Metod fï¿½r att skada nï¿½gon utan att sjï¿½lv bli skadad
     /// </summary>
-    /// <param name="index">Index för den mercenary (eller hero) som ska bli skadad</param>
-    /// <param name="dmg">Antal Health som förloras</param>
+    /// <param name="index">Index fï¿½r den mercenary (eller hero) som ska bli skadad</param>
+    /// <param name="dmg">Antal Health som fï¿½rloras</param>
     public override void DealDamage(int enemyIndex, int damage)
     {
         GameObject enemy = GameObject.Find("Enemy Board").transform.GetChild(enemyIndex).gameObject;

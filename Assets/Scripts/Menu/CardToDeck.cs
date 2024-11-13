@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 using System.Linq;
 
 /// <summary>
-/// Tar hand om event kring när kort tas bort och läggs till bland valda kort 
+/// Tar hand om event kring nï¿½r kort tas bort och lï¿½ggs till bland valda kort 
 /// </summary>
 public class CardToDeck : MonoBehaviour, IPointerClickHandler
 {
 
     /// <summary>
-    /// Konstruktor för CardToDeck
+    /// Konstruktor fï¿½r CardToDeck
     /// </summary>
     public CardToDeck()
     {
@@ -28,7 +28,7 @@ public class CardToDeck : MonoBehaviour, IPointerClickHandler
     }
 
     /// <summary>
-    /// Unitys inbyggda startfunktion kring när man klickar på ett objekt 
+    /// Unitys inbyggda startfunktion kring nï¿½r man klickar pï¿½ ett objekt 
     /// </summary>
     /// <param name="eventData">Data kring eventet</param>
     public void OnPointerClick(PointerEventData eventData)
@@ -61,7 +61,7 @@ public class CardToDeck : MonoBehaviour, IPointerClickHandler
                 cardObject.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = card.mana + "";
                 cardObject.transform.GetChild(3).GetComponent<Text>().text = card.name + "";
 
-                GameObject.Find("Card Count").transform.GetChild(1).GetComponent<Text>().text = (cardsChosen + 1) + "/30";
+                GameObject.Find("Card Count").transform.GetChild(0).GetComponent<Text>().text = (cardsChosen + 1) + " Ð¸Ð· 10";
                 GameObject.Find("Scripts").GetComponent<SelectDeck>().cardsChosen++;
 
                 GameObject.Find("Scripts").GetComponent<SelectDeck>().chosenCards.Add(cardObject);
@@ -75,7 +75,7 @@ public class CardToDeck : MonoBehaviour, IPointerClickHandler
             int cardsChosen = GameObject.Find("Scripts").GetComponent<SelectDeck>().cardsChosen;
 
             GameObject.Find("Scripts").GetComponent<SelectDeck>().cardsChosen--;
-            GameObject.Find("Card Count").transform.GetChild(1).GetComponent<Text>().text = (cardsChosen - 1) + "/30";
+            GameObject.Find("Card Count").transform.GetChild(0).GetComponent<Text>().text = (cardsChosen - 1) + " Ð¸Ð· 10";
 
             GameObject.Find("Scripts").GetComponent<SelectDeck>().chosenCards.Remove(this.gameObject);
             ReloadChosenDeck();
@@ -85,7 +85,7 @@ public class CardToDeck : MonoBehaviour, IPointerClickHandler
     }
 
     /// <summary>
-    /// Läser om listan med valda kort 
+    /// Lï¿½ser om listan med valda kort 
     /// </summary>
     void ReloadChosenDeck()
     {

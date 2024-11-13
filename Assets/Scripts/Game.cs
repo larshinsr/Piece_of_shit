@@ -5,7 +5,7 @@ using UnityEngine.UI;
 //using UnityEditor.Rendering.PostProcessing; 
 
 /// <summary>
-/// "Main"-klassen, här implementeras all gameplay
+/// "Main"-klassen, hï¿½r implementeras all gameplay
 /// </summary>
 public class Game : MonoBehaviour
 {
@@ -33,8 +33,8 @@ public class Game : MonoBehaviour
     Player p = new Player();
 
     public GameObject enemyDeck, playerDeck;
-    string[] enemyCardDeck = new string[30];
-    string[] playerCardDeck = new string[30];
+    string[] enemyCardDeck = new string[10];
+    string[] playerCardDeck = new string[10];
 
     public Canvas defaultCanvas, gameEndedCanvas;
 
@@ -43,7 +43,7 @@ public class Game : MonoBehaviour
     bool lastCardWasSummon = false; 
 
     /// <summary>
-    /// Konstruktor för Game
+    /// Konstruktor fï¿½r Game
     /// </summary>
     public Game()
     {
@@ -68,52 +68,49 @@ public class Game : MonoBehaviour
         p = GameObject.Find("Scripts").GetComponent<Player>();
         e = GameObject.Find("Scripts").GetComponent<Enemy>();
 
-        warriorDeck_spell.Add("Cleave");
-        warriorDeck_spell.Add("Execute");
-        warriorDeck_spell.Add("Shield_Block");
+        warriorDeck_spell.Add("Koroviev");
+        warriorDeck_spell.Add("Levi_Matthew");
+        warriorDeck_spell.Add("Not_a_good_apartment");
         warriorDeck.Add(warriorDeck_spell);
 
-        warriorDeck_weapon.Add("Fiery_War_Axe");
-        warriorDeck_weapon.Add("Archanite_Reaper");
+        warriorDeck_weapon.Add("Satan's_Ball");
         warriorDeck.Add(warriorDeck_weapon);
 
-        warriorDeck_minion.Add("Kor'kron_Elite");
-        warriorDeck_minion.Add("Elven_Archer");
-        warriorDeck_minion.Add("Acidic_Swamp_Ooze");
-        warriorDeck_minion.Add("Bloodfen_Raptor");
-        warriorDeck_minion.Add("River_Crocolisk");
-        warriorDeck_minion.Add("Razorfen_Hunter");
-        warriorDeck_minion.Add("Shattered_Sun_Cleric");
-        warriorDeck_minion.Add("Chillwind_Yeti");
-        warriorDeck_minion.Add("Gnomish_Inventor");
-        warriorDeck_minion.Add("Sen'jin_Shieldmasta");
-        warriorDeck_minion.Add("Stormpike_Commando");
-        warriorDeck_minion.Add("Boulderfist_Ogre");
-        warriorDeck_minion.Add("Stormwind_Champion");
+        warriorDeck_minion.Add("Annushka");
+        warriorDeck_minion.Add("Azazello");
+        warriorDeck_minion.Add("The_hippopotamus_cat");
+        warriorDeck_minion.Add("Gella");
+        warriorDeck_minion.Add("Ivan_the_homeless");
+        warriorDeck_minion.Add("Margarita");
+        warriorDeck_minion.Add("Natasha");
+        warriorDeck_minion.Add("Nikanor_Ivanovich_barefoot");
+        warriorDeck_minion.Add("Pontius_Pilate");
+        warriorDeck_minion.Add("Roman_Centurion");
+        warriorDeck_minion.Add("Stepan_Likhodeev");
         warriorDeck.Add(warriorDeck_minion);
 
-        paladinDeck_spell.Add("Blessing_of_Kings");
-        paladinDeck_spell.Add("Consecration");
-        paladinDeck_spell.Add("Hammer_of_Wrath");
+        paladinDeck_spell.Add("Koroviev");
+        paladinDeck_spell.Add("Levi_Matthew");
+        paladinDeck_spell.Add("Not_a_good_apartment");
         paladinDeck.Add(paladinDeck_spell);
 
-        paladinDeck_weapon.Add("Truesilver_Champion");
+        paladinDeck_weapon.Add("Satan's_Ball");
         paladinDeck.Add(paladinDeck_weapon);
 
-        paladinDeck_minion.Add("Guardian_of_Kings");
-        paladinDeck_minion.Add("Acidic_Swamp_Ooze");
-        paladinDeck_minion.Add("Bloodfen_Raptor");
-        paladinDeck_minion.Add("Murloc_Tidehunter");
-        paladinDeck_minion.Add("River_Crocolisk");
-        paladinDeck_minion.Add("Razorfen_Hunter");
-        paladinDeck_minion.Add("Shattered_Sun_Cleric");
-        paladinDeck_minion.Add("Chillwind_Yeti");
-        paladinDeck_minion.Add("Frostwolf_Warlord");
-        paladinDeck_minion.Add("Boulderfist_Ogre");
-        paladinDeck_minion.Add("Stormwind_Champion");
+        paladinDeck_minion.Add("Annushka");
+        paladinDeck_minion.Add("Azazello");
+        paladinDeck_minion.Add("The_hippopotamus_cat");
+        paladinDeck_minion.Add("Gella");
+        paladinDeck_minion.Add("Ivan_the_homeless");
+        paladinDeck_minion.Add("Margarita");
+        paladinDeck_minion.Add("Natasha");
+        paladinDeck_minion.Add("Nikanor_Ivanovich_barefoot");
+        paladinDeck_minion.Add("Pontius_Pilate");
+        paladinDeck_minion.Add("Roman_Centurion");
+        paladinDeck_minion.Add("Stepan_Likhodeev");
         paladinDeck.Add(paladinDeck_minion);
 
-        #region Välja spelarens kort efter cardDeck
+        #region Vï¿½lja spelarens kort efter cardDeck
         for (int i = 0; i < Resources.Load<PublicData>("PublicData").cardDeck.Count; i++)
         {
             playerCardDeck[i] = Resources.Load<PublicData>("PublicData").cardDeck[i];
@@ -121,7 +118,7 @@ public class Game : MonoBehaviour
         List<int> chosenIndexes = new List<int>();
         for (int i = 0; i < 3; i++)
         {
-            int index = Random.Range(0, 29);
+            int index = Random.Range(0, 9);
             if (!chosenIndexes.Contains(index))
             {
                 ImportCard(playerCardDeck[index], 1);
@@ -131,7 +128,7 @@ public class Game : MonoBehaviour
                 int margin = 1000, k = 0;
                 while (chosenIndexes.Contains(index) && k < margin)
                 {
-                    index = Random.Range(0, 29);
+                    index = Random.Range(0, 9);
                     k++;
                 }
                 ImportCard(playerCardDeck[index], 1);
@@ -139,8 +136,8 @@ public class Game : MonoBehaviour
         }
         #endregion
 
-        #region Fiendens cardDeck randomiserat, även ta fram första korten
-        for (int i = 0; i < 30; i++)
+        #region Fiendens cardDeck randomiserat, ï¿½ven ta fram fï¿½rsta korten
+        for (int i = 0; i < 10; i++)
         {
             string card = "";
             List<string> deck = new List<string>();
@@ -195,7 +192,7 @@ public class Game : MonoBehaviour
         chosenIndexes = new List<int>();
         for (int i = 0; i < 3; i++)
         {
-            int index = Random.Range(0, 29);
+            int index = Random.Range(0, 9);
             if (!chosenIndexes.Contains(index))
             {
                 ImportCard(enemyCardDeck[index], 0);
@@ -205,7 +202,7 @@ public class Game : MonoBehaviour
                 int margin = 1000, k = 0;
                 while (chosenIndexes.Contains(index) && k < margin)
                 {
-                    index = Random.Range(0, 29);
+                    index = Random.Range(0, 9);
                     k++;
                 }
                 ImportCard(enemyCardDeck[index], 0);
@@ -305,8 +302,8 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Importerar ett kort till antingen spelaren eller fiendens kortlek
     /// </summary>
-    /// <param name="cardName">Namnet på kortet att importera</param>
-    /// <param name="side">Sidan där kortet ska läggas på (0 = fiende, 1 = spelare)</param>
+    /// <param name="cardName">Namnet pï¿½ kortet att importera</param>
+    /// <param name="side">Sidan dï¿½r kortet ska lï¿½ggas pï¿½ (0 = fiende, 1 = spelare)</param>
     public void ImportCard(string cardName, int side)
     {
 
@@ -322,15 +319,15 @@ public class Game : MonoBehaviour
             cardObject.layer = LayerMask.NameToLayer("UI");
             cardObject.tag = "Card";
 
-            float cardWidth = 70; 
-            float cardHeight = 100; 
+            float cardWidth = 120; 
+            float cardHeight = 170; 
 
             cardObject.AddComponent<Image>();
             cardObject.GetComponent<Image>().sprite = frame;
             cardObject.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);
             cardObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
 
-            cardObject.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            cardObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
             Enemy e = GameObject.Find("Scripts").GetComponent<Enemy>();
             e.cardObjects.Add(cardObject);
@@ -367,16 +364,16 @@ public class Game : MonoBehaviour
             Sprite image = card.image;
             CardType cardType = card.cardType;
 
-            int durability = card.durability; 
+            // int durability = card.durability; 
 
-            Sprite manaSprite = Resources.Load<Sprite>(cardsImagesURL + "Mana");
-            Sprite healthSprite = Resources.Load<Sprite>(cardsImagesURL + "Health");
-            Sprite attackSprite = Resources.Load<Sprite>(cardsImagesURL + "Attack");
-            if(cardType == CardType.Weapon)
-            {
-                healthSprite = Resources.Load<Sprite>(cardsImagesURL + "Durability");
-                attackSprite = Resources.Load<Sprite>(cardsImagesURL + "Weapon Attack");
-            }
+            // Sprite manaSprite = Resources.Load<Sprite>(cardsImagesURL + "Mana");
+            // Sprite healthSprite = Resources.Load<Sprite>(cardsImagesURL + "Health");
+            // Sprite attackSprite = Resources.Load<Sprite>(cardsImagesURL + "Attack");
+            // if(cardType == CardType.Weapon)
+            // {
+            //     healthSprite = Resources.Load<Sprite>(cardsImagesURL + "Durability");
+            //     attackSprite = Resources.Load<Sprite>(cardsImagesURL + "Weapon Attack");
+            // }
 
             Sprite frame;
             string imageName = "";
@@ -387,10 +384,10 @@ public class Game : MonoBehaviour
                 imageName = "Frame-weapon-warrior";
             else if (cardType == CardType.Spell)
                 imageName = "Frame-spell-warrior";
-            else //ändra sen för att anpassa till typ av kort
+            else //ï¿½ndra sen fï¿½r att anpassa till typ av kort
                 imageName = "Frame-minion-neutral";
 
-            frame = Resources.Load<Sprite>(cardsFramesURL + imageName);
+            // frame = Resources.Load<Sprite>(cardsFramesURL + imageName);
 
             GameObject deck = GameObject.Find("Player Deck");
             GameObject cardObject = new GameObject(cardName, typeof(RectTransform));
@@ -403,152 +400,152 @@ public class Game : MonoBehaviour
             cardObject.AddComponent<CanvasGroup>();
 
             #region Skapande av card UI
-            GameObject border = new GameObject("Green Border", typeof(RectTransform));
-            border.transform.parent = cardObject.transform;
-            border.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
-            border.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            border.AddComponent<Image>();
-            border.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
-            border.layer = LayerMask.NameToLayer("UI");
-            border.AddComponent<Mask>();
-            border.GetComponent<Mask>().showMaskGraphic = false;
-            border.tag = "Green Border";
+            // GameObject border = new GameObject("Green Border", typeof(RectTransform));
+            // border.transform.parent = cardObject.transform;
+            // border.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
+            // border.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            // border.AddComponent<Image>();
+            // border.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
+            // border.layer = LayerMask.NameToLayer("UI");
+            // border.AddComponent<Mask>();
+            // border.GetComponent<Mask>().showMaskGraphic = false;
+            // border.tag = "Green Border";
 
-            GameObject borderObject = new GameObject("Object", typeof(RectTransform));
-            borderObject.transform.parent = border.transform;
-            borderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
-            borderObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            borderObject.layer = LayerMask.NameToLayer("UI");
-            borderObject.AddComponent<Image>();
-            borderObject.GetComponent<Image>().color = GameObject.Find("Scripts").GetComponent<Game>().buttonClickable;
+            // GameObject borderObject = new GameObject("Object", typeof(RectTransform));
+            // borderObject.transform.parent = border.transform;
+            // borderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
+            // borderObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            // borderObject.layer = LayerMask.NameToLayer("UI");
+            // borderObject.AddComponent<Image>();
+            // borderObject.GetComponent<Image>().color = GameObject.Find("Scripts").GetComponent<Game>().buttonClickable;
 
             GameObject mask = new GameObject("Image", typeof(RectTransform));
             mask.transform.parent = cardObject.transform;
-            mask.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
+            mask.GetComponent<RectTransform>().sizeDelta = new Vector2(220, 220);
             mask.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            mask.AddComponent<Image>();
-            mask.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
+            // mask.AddComponent<Image>();
+            // mask.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
             mask.layer = LayerMask.NameToLayer("UI");
-            mask.AddComponent<Mask>();
-            mask.GetComponent<Mask>().showMaskGraphic = false;
+            // mask.AddComponent<Mask>();
+            // mask.GetComponent<Mask>().showMaskGraphic = false;
 
             GameObject imageObj = new GameObject("Image", typeof(RectTransform));
             imageObj.transform.parent = mask.transform;
-            imageObj.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 70);
+            imageObj.GetComponent<RectTransform>().sizeDelta = new Vector2(170, 220);
             imageObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 20);
             imageObj.AddComponent<Image>();
             imageObj.GetComponent<Image>().sprite = image;
             imageObj.layer = LayerMask.NameToLayer("UI");
 
-            GameObject frameObject = new GameObject("Frame", typeof(RectTransform));
-            frameObject.transform.parent = mask.transform;
-            frameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
-            frameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            frameObject.AddComponent<Image>();
-            frameObject.GetComponent<Image>().sprite = frame;
-            frameObject.layer = LayerMask.NameToLayer("UI");
+            // GameObject frameObject = new GameObject("Frame", typeof(RectTransform));
+            // frameObject.transform.parent = mask.transform;
+            // frameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 120);
+            // frameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            // frameObject.AddComponent<Image>();
+            // frameObject.GetComponent<Image>().sprite = frame;
+            // frameObject.layer = LayerMask.NameToLayer("UI");
 
-            GameObject nameText = new GameObject("Name", typeof(RectTransform));
-            nameText.transform.parent = frameObject.transform;
-            nameText.GetComponent<RectTransform>().sizeDelta = new Vector2(70, 18);
-            nameText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -8);
-            nameText.AddComponent<Text>();
-            nameText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-            nameText.GetComponent<Text>().fontSize = 8;
-            nameText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-            nameText.GetComponent<Text>().color = Color.white;
-            nameText.GetComponent<Text>().text = name;
-            nameText.layer = LayerMask.NameToLayer("UI");
+            // GameObject nameText = new GameObject("Name", typeof(RectTransform));
+            // // nameText.transform.parent = frameObject.transform;
+            // nameText.GetComponent<RectTransform>().sizeDelta = new Vector2(70, 18);
+            // nameText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -8);
+            // nameText.AddComponent<Text>();
+            // nameText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+            // nameText.GetComponent<Text>().fontSize = 8;
+            // nameText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+            // nameText.GetComponent<Text>().color = Color.white;
+            // nameText.GetComponent<Text>().text = name;
+            // nameText.layer = LayerMask.NameToLayer("UI");
 
-            GameObject descriptionText = new GameObject("Description", typeof(RectTransform));
-            GameObject descriptionCopy = cardCopy.transform.GetChild(1).GetChild(1).GetChild(1).gameObject; 
-            descriptionText.transform.parent = frameObject.transform;
-            descriptionText.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCopy.GetComponent<RectTransform>().rect.width, descriptionCopy.GetComponent<RectTransform>().rect.height);
-            descriptionText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, descriptionCopy.GetComponent<RectTransform>().anchoredPosition.y);
-            descriptionText.AddComponent<Text>();
-            descriptionText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-            descriptionText.GetComponent<Text>().fontSize = descriptionCopy.GetComponent<Text>().fontSize;
-            descriptionText.GetComponent<Text>().verticalOverflow = descriptionCopy.GetComponent<Text>().verticalOverflow; 
-            descriptionText.GetComponent<Text>().alignment = descriptionCopy.GetComponent<Text>().alignment;
-            descriptionText.GetComponent<Text>().color = Color.white;
-            descriptionText.GetComponent<Text>().text = description;
-            descriptionText.layer = LayerMask.NameToLayer("UI");
+            // GameObject descriptionText = new GameObject("Description", typeof(RectTransform));
+            // GameObject descriptionCopy = cardCopy.transform.GetChild(1).GetChild(1).GetChild(1).gameObject; 
+            // descriptionText.transform.parent = frameObject.transform;
+            // descriptionText.GetComponent<RectTransform>().sizeDelta = new Vector2(descriptionCopy.GetComponent<RectTransform>().rect.width, descriptionCopy.GetComponent<RectTransform>().rect.height);
+            // descriptionText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, descriptionCopy.GetComponent<RectTransform>().anchoredPosition.y);
+            // descriptionText.AddComponent<Text>();
+            // descriptionText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+            // descriptionText.GetComponent<Text>().fontSize = descriptionCopy.GetComponent<Text>().fontSize;
+            // descriptionText.GetComponent<Text>().verticalOverflow = descriptionCopy.GetComponent<Text>().verticalOverflow; 
+            // descriptionText.GetComponent<Text>().alignment = descriptionCopy.GetComponent<Text>().alignment;
+            // descriptionText.GetComponent<Text>().color = Color.white;
+            // descriptionText.GetComponent<Text>().text = description;
+            // descriptionText.layer = LayerMask.NameToLayer("UI");
 
-            GameObject manaObject = new GameObject("Mana", typeof(RectTransform));
-            manaObject.transform.parent = frameObject.transform;
-            manaObject.GetComponent<RectTransform>().sizeDelta = new Vector2(20, 20);
-            manaObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-36, 47);
-            manaObject.AddComponent<Image>();
-            manaObject.GetComponent<Image>().sprite = manaSprite;
-            manaObject.GetComponent<Image>().maskable = false;
-            manaObject.layer = LayerMask.NameToLayer("UI");
+            // GameObject manaObject = new GameObject("Mana", typeof(RectTransform));
+            // manaObject.transform.parent = frameObject.transform;
+            // manaObject.GetComponent<RectTransform>().sizeDelta = new Vector2(20, 20);
+            // manaObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-36, 47);
+            // manaObject.AddComponent<Image>();
+            // manaObject.GetComponent<Image>().sprite = manaSprite;
+            // manaObject.GetComponent<Image>().maskable = false;
+            // manaObject.layer = LayerMask.NameToLayer("UI");
 
-            GameObject manaText = new GameObject("Text", typeof(RectTransform));
-            manaText.transform.parent = manaObject.transform;
-            manaText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
-            manaText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 2);
-            manaText.AddComponent<Text>();
-            manaText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-            manaText.GetComponent<Text>().fontSize = 18;
-            manaText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-            manaText.GetComponent<Text>().color = Color.white;
-            manaText.GetComponent<Text>().text = mana + "";
-            manaText.GetComponent<Text>().maskable = false;
-            manaText.layer = LayerMask.NameToLayer("UI");
+            // GameObject manaText = new GameObject("Text", typeof(RectTransform));
+            // manaText.transform.parent = manaObject.transform;
+            // manaText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
+            // manaText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 2);
+            // manaText.AddComponent<Text>();
+            // manaText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+            // manaText.GetComponent<Text>().fontSize = 18;
+            // manaText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+            // manaText.GetComponent<Text>().color = Color.white;
+            // manaText.GetComponent<Text>().text = mana + "";
+            // manaText.GetComponent<Text>().maskable = false;
+            // manaText.layer = LayerMask.NameToLayer("UI");
 
-            if(cardType != CardType.Spell)
-            {
-                GameObject attackObject = new GameObject("Attack", typeof(RectTransform));
-                attackObject.transform.parent = frameObject.transform;
-                attackObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25, 25);
-                attackObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-36, -52);
-                attackObject.AddComponent<Image>();
-                attackObject.GetComponent<Image>().sprite = attackSprite;
-                attackObject.GetComponent<Image>().maskable = false;
-                attackObject.layer = LayerMask.NameToLayer("UI");
+            // if(cardType != CardType.Spell)
+            // {
+            //     GameObject attackObject = new GameObject("Attack", typeof(RectTransform));
+            //     attackObject.transform.parent = frameObject.transform;
+            //     attackObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25, 25);
+            //     attackObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(-36, -52);
+            //     attackObject.AddComponent<Image>();
+            //     attackObject.GetComponent<Image>().sprite = attackSprite;
+            //     attackObject.GetComponent<Image>().maskable = false;
+            //     attackObject.layer = LayerMask.NameToLayer("UI");
 
-                GameObject attackText = new GameObject("Text", typeof(RectTransform));
-                attackText.transform.parent = attackObject.transform;
-                attackText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
-                attackText.GetComponent<RectTransform>().anchoredPosition = new Vector2(2, -1);
-                attackText.AddComponent<Text>();
-                attackText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-                attackText.GetComponent<Text>().fontSize = 18;
-                attackText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-                attackText.GetComponent<Text>().color = Color.white;
-                attackText.GetComponent<Text>().text = attack + "";
-                attackText.GetComponent<Text>().maskable = false;
-                attackText.layer = LayerMask.NameToLayer("UI");
+            //     GameObject attackText = new GameObject("Text", typeof(RectTransform));
+            //     attackText.transform.parent = attackObject.transform;
+            //     attackText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
+            //     attackText.GetComponent<RectTransform>().anchoredPosition = new Vector2(2, -1);
+            //     attackText.AddComponent<Text>();
+            //     attackText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+            //     attackText.GetComponent<Text>().fontSize = 18;
+            //     attackText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+            //     attackText.GetComponent<Text>().color = Color.white;
+            //     attackText.GetComponent<Text>().text = attack + "";
+            //     attackText.GetComponent<Text>().maskable = false;
+            //     attackText.layer = LayerMask.NameToLayer("UI");
 
-                GameObject healthObject = new GameObject("health", typeof(RectTransform));
-                healthObject.transform.parent = frameObject.transform;
-                healthObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25, 25);
-                healthObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(36, -52);
-                healthObject.AddComponent<Image>();
-                healthObject.GetComponent<Image>().sprite = healthSprite;
-                healthObject.GetComponent<Image>().maskable = false;
-                healthObject.layer = LayerMask.NameToLayer("UI");
+            //     GameObject healthObject = new GameObject("health", typeof(RectTransform));
+            //     healthObject.transform.parent = frameObject.transform;
+            //     healthObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25, 25);
+            //     healthObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(36, -52);
+            //     healthObject.AddComponent<Image>();
+            //     healthObject.GetComponent<Image>().sprite = healthSprite;
+            //     healthObject.GetComponent<Image>().maskable = false;
+            //     healthObject.layer = LayerMask.NameToLayer("UI");
 
-                GameObject healthText = new GameObject("Text", typeof(RectTransform));
-                healthText.transform.parent = healthObject.transform;
-                healthText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
-                healthText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -1);
-                healthText.AddComponent<Text>();
-                healthText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-                healthText.GetComponent<Text>().fontSize = 18;
-                healthText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-                healthText.GetComponent<Text>().color = Color.white;
-                healthText.GetComponent<Text>().text = health + "";
-                if (cardType == CardType.Weapon)
-                    healthText.GetComponent<Text>().text = durability + "";
-                healthText.GetComponent<Text>().maskable = false;
-                healthText.layer = LayerMask.NameToLayer("UI");
-            }
+            //     GameObject healthText = new GameObject("Text", typeof(RectTransform));
+            //     healthText.transform.parent = healthObject.transform;
+            //     healthText.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
+            //     healthText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -1);
+            //     healthText.AddComponent<Text>();
+            //     healthText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+            //     healthText.GetComponent<Text>().fontSize = 18;
+            //     healthText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+            //     healthText.GetComponent<Text>().color = Color.white;
+            //     healthText.GetComponent<Text>().text = health + "";
+            //     if (cardType == CardType.Weapon)
+            //         healthText.GetComponent<Text>().text = durability + "";
+            //     healthText.GetComponent<Text>().maskable = false;
+            //     healthText.layer = LayerMask.NameToLayer("UI");
+            // }
 
-            cardObject.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            cardObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             #endregion
 
-            cardObject.GetComponent<RectTransform>().sizeDelta = new Vector2(80, 120);
+            cardObject.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 140);
 
             Player p = GameObject.Find("Scripts").GetComponent<Player>();
             p.cardObjects.Add(cardObject);
@@ -563,10 +560,10 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Importerar en mercenary ("legosoldat", spelbar karaktär) till antingen spelaren eller fiendens del av spelplanen
+    /// Importerar en mercenary ("legosoldat", spelbar karaktï¿½r) till antingen spelaren eller fiendens del av spelplanen
     /// </summary>
-    /// <param name="cardName">Namnet på kortet att importera</param>
-    /// <param name="side">Sidan där karaktären ska läggas på (0 = fiende, 1 = spelare)</param>
+    /// <param name="cardName">Namnet pï¿½ kortet att importera</param>
+    /// <param name="side">Sidan dï¿½r karaktï¿½ren ska lï¿½ggas pï¿½ (0 = fiende, 1 = spelare)</param>
     public void ImportMercenary(string cardName, int side)
     {
 
@@ -577,7 +574,7 @@ public class Game : MonoBehaviour
             enemyOrPlayer = "Player";
         else
         {
-            Debug.Log("Fel värde på int side i ImportMercenary(string, int)"); //-
+            Debug.Log("Fel vï¿½rde pï¿½ int side i ImportMercenary(string, int)"); //-
             return; 
         }
 
@@ -597,7 +594,7 @@ public class Game : MonoBehaviour
         {
             imageName = "Mercenary-Minion";
         }
-        else //ändra senare
+        else //ï¿½ndra senare
         {
             imageName = "Mercenary-Minion";
         }
@@ -645,29 +642,29 @@ public class Game : MonoBehaviour
         AddCardToHistory(cardName, side);
 
         #region Skapande av mercenary UI
-        if (side == 1)
-        {
-            GameObject border = new GameObject("Green Border", typeof(RectTransform));
-            rt = example.transform.GetChild(0).GetComponent<RectTransform>();
-            border.transform.parent = mercObject.transform;
-            border.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-            border.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            border.AddComponent<Image>();
-            border.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
-            border.layer = LayerMask.NameToLayer("UI");
-            border.AddComponent<Mask>();
-            border.GetComponent<Mask>().showMaskGraphic = false;
-            border.tag = "Green Border";
+        // if (side == 1)
+        // {
+        //     GameObject border = new GameObject("Green Border", typeof(RectTransform));
+        //     rt = example.transform.GetChild(0).GetComponent<RectTransform>();
+        //     border.transform.parent = mercObject.transform;
+        //     border.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        //     border.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        //     border.AddComponent<Image>();
+        //     border.GetComponent<Image>().sprite = Resources.Load<Sprite>(cardsFramesURL + imageName + "-mask");
+        //     border.layer = LayerMask.NameToLayer("UI");
+        //     border.AddComponent<Mask>();
+        //     border.GetComponent<Mask>().showMaskGraphic = false;
+        //     border.tag = "Green Border";
 
-            GameObject borderObject = new GameObject("Object", typeof(RectTransform));
-            rt = example.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
-            borderObject.transform.parent = border.transform;
-            borderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-            borderObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            borderObject.layer = LayerMask.NameToLayer("UI");
-            borderObject.AddComponent<Image>();
-            borderObject.GetComponent<Image>().color = GameObject.Find("Scripts").GetComponent<Game>().buttonClickable;
-        }
+        //     GameObject borderObject = new GameObject("Object", typeof(RectTransform));
+        //     rt = example.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
+        //     borderObject.transform.parent = border.transform;
+        //     borderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        //     borderObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        //     borderObject.layer = LayerMask.NameToLayer("UI");
+        //     borderObject.AddComponent<Image>();
+        //     borderObject.GetComponent<Image>().color = GameObject.Find("Scripts").GetComponent<Game>().buttonClickable;
+        // }
 
         GameObject frame1 = new GameObject("Frame", typeof(RectTransform));
         rt = example.transform.GetChild(1).GetComponent<RectTransform>();
@@ -676,7 +673,7 @@ public class Game : MonoBehaviour
         frame1.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
         frame1.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
         frame1.AddComponent<Image>();
-        frame1.GetComponent<Image>().sprite = Resources.Load<Sprite>(frameName + "-mask");
+        // frame1.GetComponent<Image>().sprite = Resources.Load<Sprite>(frameName + "-mask");
         frame1.AddComponent<Mask>();
         frame1.GetComponent<Mask>().showMaskGraphic = false;
 
@@ -689,64 +686,64 @@ public class Game : MonoBehaviour
         imageObj.AddComponent<Image>();
         imageObj.GetComponent<Image>().sprite = image;
 
-        GameObject frame2 = new GameObject("Frame Visible", typeof(RectTransform));
-        rt = example.transform.GetChild(1).GetChild(1).GetComponent<RectTransform>();
-        frame2.transform.parent = frame1.transform;
-        frame2.layer = LayerMask.NameToLayer("UI");
-        frame2.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-        frame2.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-        frame2.AddComponent<Image>();
-        frame2.GetComponent<Image>().sprite = Resources.Load<Sprite>(frameName);
+        // GameObject frame2 = new GameObject("Frame Visible", typeof(RectTransform));
+        // rt = example.transform.GetChild(1).GetChild(1).GetComponent<RectTransform>();
+        // frame2.transform.parent = frame1.transform;
+        // frame2.layer = LayerMask.NameToLayer("UI");
+        // frame2.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        // frame2.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        // frame2.AddComponent<Image>();
+        // frame2.GetComponent<Image>().sprite = Resources.Load<Sprite>(frameName);
 
-        GameObject attackObj = new GameObject("Attack", typeof(RectTransform));
-        rt = example.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<RectTransform>();
-        attackObj.transform.parent = frame2.transform;
-        attackObj.layer = LayerMask.NameToLayer("UI");
-        attackObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
-        attackObj.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-        attackObj.AddComponent<Image>();
-        attackObj.GetComponent<Image>().sprite = attackSprite;
-        attackObj.GetComponent<Image>().maskable = false;
+        // GameObject attackObj = new GameObject("Attack", typeof(RectTransform));
+        // rt = example.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<RectTransform>();
+        // attackObj.transform.parent = frame2.transform;
+        // attackObj.layer = LayerMask.NameToLayer("UI");
+        // attackObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
+        // attackObj.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        // attackObj.AddComponent<Image>();
+        // attackObj.GetComponent<Image>().sprite = attackSprite;
+        // attackObj.GetComponent<Image>().maskable = false;
 
-        GameObject attackText = new GameObject("Text", typeof(RectTransform));
-        rt = example.transform.GetChild(1).GetChild(1).GetChild(0).GetChild(0).GetComponent<RectTransform>();
-        attackText.transform.parent = attackObj.transform;
-        attackText.layer = LayerMask.NameToLayer("UI");
-        attackText.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
-        attackText.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-        attackText.AddComponent<Text>();
-        attackText.GetComponent<Text>().text = attack + "";
-        attackText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-        attackText.GetComponent<Text>().fontSize = 10;
-        attackText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-        attackText.GetComponent<Text>().color = Color.white;
-        attackText.GetComponent<Text>().maskable = false;
+        // GameObject attackText = new GameObject("Text", typeof(RectTransform));
+        // rt = example.transform.GetChild(1).GetChild(1).GetChild(0).GetChild(0).GetComponent<RectTransform>();
+        // attackText.transform.parent = attackObj.transform;
+        // attackText.layer = LayerMask.NameToLayer("UI");
+        // attackText.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
+        // attackText.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        // attackText.AddComponent<Text>();
+        // attackText.GetComponent<Text>().text = attack + "";
+        // attackText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+        // attackText.GetComponent<Text>().fontSize = 10;
+        // attackText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        // attackText.GetComponent<Text>().color = Color.white;
+        // attackText.GetComponent<Text>().maskable = false;
 
-        GameObject healthObj = new GameObject("health", typeof(RectTransform));
-        rt = example.transform.GetChild(1).GetChild(1).GetChild(1).GetComponent<RectTransform>();
-        healthObj.transform.parent = frame2.transform;
-        healthObj.layer = LayerMask.NameToLayer("UI");
-        healthObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
-        healthObj.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-        healthObj.AddComponent<Image>();
-        healthObj.GetComponent<Image>().sprite = healthSprite;
-        healthObj.GetComponent<Image>().maskable = false;
+        // GameObject healthObj = new GameObject("health", typeof(RectTransform));
+        // rt = example.transform.GetChild(1).GetChild(1).GetChild(1).GetComponent<RectTransform>();
+        // healthObj.transform.parent = frame2.transform;
+        // healthObj.layer = LayerMask.NameToLayer("UI");
+        // healthObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
+        // healthObj.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        // healthObj.AddComponent<Image>();
+        // healthObj.GetComponent<Image>().sprite = healthSprite;
+        // healthObj.GetComponent<Image>().maskable = false;
 
-        GameObject healthText = new GameObject("Text", typeof(RectTransform));
-        rt = example.transform.GetChild(1).GetChild(1).GetChild(1).GetChild(0).GetComponent<RectTransform>();
-        healthText.transform.parent = healthObj.transform;
-        healthText.layer = LayerMask.NameToLayer("UI");
-        healthText.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
-        healthText.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
-        healthText.AddComponent<Text>();
-        healthText.GetComponent<Text>().text = health + "";
-        healthText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
-        healthText.GetComponent<Text>().fontSize = 10;
-        healthText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-        healthText.GetComponent<Text>().color = Color.white;
-        healthText.GetComponent<Text>().maskable = false;
+        // GameObject healthText = new GameObject("Text", typeof(RectTransform));
+        // rt = example.transform.GetChild(1).GetChild(1).GetChild(1).GetChild(0).GetComponent<RectTransform>();
+        // healthText.transform.parent = healthObj.transform;
+        // healthText.layer = LayerMask.NameToLayer("UI");
+        // healthText.GetComponent<RectTransform>().anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y);
+        // healthText.GetComponent<RectTransform>().sizeDelta = new Vector2(rt.rect.width, rt.rect.height);
+        // healthText.AddComponent<Text>();
+        // healthText.GetComponent<Text>().text = health + "";
+        // healthText.GetComponent<Text>().font = Resources.Load<Font>(belweFontsURL + usedFont);
+        // healthText.GetComponent<Text>().fontSize = 10;
+        // healthText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        // healthText.GetComponent<Text>().color = Color.white;
+        // healthText.GetComponent<Text>().maskable = false;
 
-        mercObject.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        mercObject.GetComponent<RectTransform>().localScale = new Vector3(2f, 2f, 2f);
         #endregion
 
         if(side == 0)
@@ -801,10 +798,10 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Lägger till ett vapen till karaktären 
+    /// Lï¿½gger till ett vapen till karaktï¿½ren 
     /// </summary>
-    /// <param name="weaponName">Namnet på vapnet</param>
-    /// <param name="side">Sidan där vapnet ska läggas till (1 == spelare, 2 == fiende)</param>
+    /// <param name="weaponName">Namnet pï¿½ vapnet</param>
+    /// <param name="side">Sidan dï¿½r vapnet ska lï¿½ggas till (1 == spelare, 2 == fiende)</param>
     public void AddWeapon(string weaponName, int side)
     {
 
@@ -822,7 +819,7 @@ public class Game : MonoBehaviour
         }
         else
         {
-            Debug.Log("Värde på int side i AddWeapon(string, int) är felaktigt initierad");
+            Debug.Log("Vï¿½rde pï¿½ int side i AddWeapon(string, int) ï¿½r felaktigt initierad");
             return; 
         }
 
@@ -869,9 +866,9 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Uppdaterar korthögen för spelare eller fiende
+    /// Uppdaterar korthï¿½gen fï¿½r spelare eller fiende
     /// </summary>
-    /// <param name="side">Sidan där kort ska uppdateras (0 = fiende, 1 = spelare)</param>
+    /// <param name="side">Sidan dï¿½r kort ska uppdateras (0 = fiende, 1 = spelare)</param>
     public void ReloadCards(int side)
     {
 
@@ -882,7 +879,7 @@ public class Game : MonoBehaviour
             if (e.cardObjects.Count > 0)
             {
 
-                float margin = 35;
+                float margin = -20;
                 float cardWidth = GameObject.Find("Enemy Deck").transform.GetChild(0).GetComponent<RectTransform>().rect.width;
                 float lengthOfLine = 0;
 
@@ -912,7 +909,7 @@ public class Game : MonoBehaviour
             if (p.cardObjects.Count > 0)
             {
 
-                float margin = 35;
+                float margin = -20;
                 float cardWidth = GameObject.Find("Player Deck").transform.GetChild(0).GetComponent<RectTransform>().rect.width;
                 float lengthOfLine = 0;
 
@@ -943,9 +940,9 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Uppdaterar karaktärer på spelplan för spelare eller fiende
+    /// Uppdaterar karaktï¿½rer pï¿½ spelplan fï¿½r spelare eller fiende
     /// </summary>
-    /// <param name="side">Sidan där det ska uppdateras (0 = fiende, 1 = spelare)</param>
+    /// <param name="side">Sidan dï¿½r det ska uppdateras (0 = fiende, 1 = spelare)</param>
     public void ReloadMercenaries(int side)
     {
 
@@ -1007,7 +1004,7 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Metod kallad när knappen "End Turn Button" är klickad
+    /// Metod kallad nï¿½r knappen "End Turn Button" ï¿½r klickad
     /// </summary>
     public void EndTurn()
     {
@@ -1157,7 +1154,7 @@ public class Game : MonoBehaviour
             if (enemyDeck.transform.childCount < 10)
                 ImportCard(enemyCardDeck[Random.Range(0, 29)], 0);
 
-            //reloadar. nu är det spelarens tur igen
+            //reloadar. nu ï¿½r det spelarens tur igen
 
             if (maxMana < 10)
                 maxMana++;
@@ -1202,7 +1199,7 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Läser om gröna ramer runt objekt som endast syns när ett objekt är valbart 
+    /// Lï¿½ser om grï¿½na ramer runt objekt som endast syns nï¿½r ett objekt ï¿½r valbart 
     /// </summary>
     public void ReloadBorders()
     {
@@ -1241,7 +1238,7 @@ public class Game : MonoBehaviour
                 else
                 {
                     print(parentObject.name);
-                    print("Något gick fel i metoden ReloadBounds() i Game.cs");
+                    print("Nï¿½got gick fel i metoden ReloadBounds() i Game.cs");
                     return; 
                 }
 

@@ -13,14 +13,14 @@ public class SelectDeck : MenuButtonEvents
     int cardsInMenu = 0; 
     public int cardsChosen = 0;
     
-    Vector2 startPos = new Vector2(-235.3f, 109.9f);
+    Vector2 startPos = new Vector2(-600f, 230);
 
     public List<GameObject> chosenCards;
 
     List<List<GameObject>> pages = new List<List<GameObject>>();
 
     /// <summary>
-    /// Konstruktor för SelectDeck
+    /// Konstruktor fï¿½r SelectDeck
     /// </summary>
     public SelectDeck()
     {
@@ -32,32 +32,29 @@ public class SelectDeck : MenuButtonEvents
     /// </summary>
     private void Start()
     {
-        ImportCard("Cleave");
-        ImportCard("Execute");
-        ImportCard("Shield_Block");
-        ImportCard("Fiery_War_Axe");
-        ImportCard("Archanite_Reaper");
-        ImportCard("Kor'kron_Elite");
-        ImportCard("Elven_Archer");
-        ImportCard("Acidic_Swamp_Ooze");
-        ImportCard("Bloodfen_Raptor");
-        ImportCard("River_Crocolisk");
-        ImportCard("Razorfen_Hunter");
-        ImportCard("Shattered_Sun_Cleric");
-        ImportCard("Chillwind_Yeti");
-        ImportCard("Gnomish_Inventor");
-        ImportCard("Sen'jin_Shieldmasta");
-        ImportCard("Stormpike_Commando");
-        ImportCard("Boulderfist_Ogre");
-        ImportCard("Stormwind_Champion");
+        ImportCard("Annushka");
+        ImportCard("Azazello");
+        ImportCard("The_hippopotamus_cat");
+        ImportCard("Gella");
+        ImportCard("Ivan_the_homeless");
+        ImportCard("Koroviev");
+        ImportCard("Levi_Matthew");
+        ImportCard("Margarita");
+        ImportCard("Natasha");
+        ImportCard("Nikanor_Ivanovich_barefoot");
+        ImportCard("Not_a_good_apartment");
+        ImportCard("Pontius_Pilate");
+        ImportCard("Roman_Centurion");
+        ImportCard("Satan's_Ball");
+        ImportCard("Stepan_Likhodeev");
 
         ReloadPage(1);
     }
 
     /// <summary>
-    /// Lägger till ett kort bland alternativen för kort man kan välja
+    /// Lï¿½gger till ett kort bland alternativen fï¿½r kort man kan vï¿½lja
     /// </summary>
-    /// <param name="cardName">Namnet på kortet</param>
+    /// <param name="cardName">Namnet pï¿½ kortet</param>
     void ImportCard(string cardName)
     {
 
@@ -69,7 +66,7 @@ public class SelectDeck : MenuButtonEvents
         cardObject.transform.parent = GameObject.Find("Card Options").transform;
         cardObject.name = cardName; 
 
-        float xMargin = 152.9f, yMargin = 193.82f;
+        float xMargin = 400f, yMargin = 420f;
 
         int index = cardsInMenu;
         if(cardsInMenu >= 8)
@@ -130,17 +127,22 @@ public class SelectDeck : MenuButtonEvents
     }
 
     /// <summary>
-    /// Sätter igång spelet
+    /// Sï¿½tter igï¿½ng spelet
     /// </summary>
     public override void PlayGame()
     {
         SwitchScene(2);
     }
 
+    public void BackMenu()
+    {
+        SwitchScene(0);
+    }
+
     /// <summary>
     /// Byter sida bland kort-alternativen
     /// </summary>
-    /// <param name="side">Den sida man "bläddrar över", dvsa "Left" eller "Right"</param>
+    /// <param name="side">Den sida man "blï¿½ddrar ï¿½ver", dvsa "Left" eller "Right"</param>
     public void SwitchPage(string side)
     {
 
@@ -173,9 +175,9 @@ public class SelectDeck : MenuButtonEvents
     }
 
     /// <summary>
-    /// Byter vilka kort som syns, efter att en sida har vänds bland kort-alternativen
+    /// Byter vilka kort som syns, efter att en sida har vï¿½nds bland kort-alternativen
     /// </summary>
-    /// <param name="page">Indexet på den sida som nu ska visas</param>
+    /// <param name="page">Indexet pï¿½ den sida som nu ska visas</param>
     public void ReloadPage(int page)
     {
 
